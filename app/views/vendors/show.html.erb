@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @vendor.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @vendor.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @vendor.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @vendor.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_vendor_path(@vendor) %> |
+<%= link_to 'Back', vendors_path %>

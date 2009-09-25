@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @product.description %>
+</p>
+
+<p>
+  <b>Dimensions:</b>
+  <%=h @product.dimensions %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @product.category_id %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%=h @product.remarks %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

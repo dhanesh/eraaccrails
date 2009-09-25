@@ -1,0 +1,688 @@
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2009-09-24 17:45:08) [GET]
+  [4;36;1mSQL (23.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 214ms (View: 32, DB: 24) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2009-09-24 17:45:19) [GET]
+  [4;35;1mCustomer Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: customers: SELECT * FROM "customers" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: customers: SELECT * FROM "customers" ):
+  app/controllers/customers_controller.rb:5:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (257.7ms)
+Rendered rescues/_request_and_response (4.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-24 17:45:24) [GET]
+
+ActionController::RoutingError (No route matches "/customer" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (10.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCustomers (20090924120621)
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "customers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "phone" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090924120621')[0m
+Migrating to CreateVendors (20090924120736)
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "vendors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "phone" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090924120736')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("customers")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("vendors")[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2009-09-24 17:46:06) [GET]
+  [4;36;1mCustomer Load (1.5ms)[0m   [0;1mSELECT * FROM "customers" [0m
+Rendering template within layouts/customers
+Rendering customers/index
+Completed in 91ms (View: 66, DB: 2) | 200 OK [http://localhost/customers]
+
+
+Processing CustomersController#new (for 127.0.0.1 at 2009-09-24 17:46:31) [GET]
+Rendering template within layouts/customers
+Rendering customers/new
+Completed in 51ms (View: 28, DB: 0) | 200 OK [http://localhost/customers/new]
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2009-09-24 17:46:39) [GET]
+  [4;35;1mCustomer Load (1.1ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/customers
+Rendering customers/index
+Completed in 24ms (View: 4, DB: 1) | 200 OK [http://localhost/customers]
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2009-09-24 17:48:21) [GET]
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `validates_numericalty_of' for #<Class:0xb5f81e74>):
+  app/models/customer.rb:3
+  app/controllers/customers_controller.rb:5:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (334.9ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2009-09-24 17:48:39) [GET]
+  [4;36;1mCustomer Load (1.1ms)[0m   [0;1mSELECT * FROM "customers" [0m
+Rendering template within layouts/customers
+Rendering customers/index
+Completed in 23ms (View: 4, DB: 1) | 200 OK [http://localhost/customers]
+
+
+Processing CustomersController#new (for 127.0.0.1 at 2009-09-24 17:48:42) [GET]
+Rendering template within layouts/customers
+Rendering customers/new
+Completed in 44ms (View: 18, DB: 0) | 200 OK [http://localhost/customers/new]
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2009-09-24 17:49:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8kDlX5Hnm/9H198Rzxu/LJ9j+vA16kIabTvZU7xa64o=", "customer"=>{"address"=>"2/A, 303, Paras Nagar, Shanker Lane, Kandivali(West), Mumbai - 400067", "name"=>"Dhanesh", "phone"=>"a", "email"=>""}}
+Rendering template within layouts/customers
+Rendering customers/new
+Completed in 53ms (View: 11, DB: 0) | 200 OK [http://localhost/customers]
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2009-09-24 17:50:13) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8kDlX5Hnm/9H198Rzxu/LJ9j+vA16kIabTvZU7xa64o=", "customer"=>{"address"=>"2/A, 303, Paras Nagar, Shanker Lane, Kandivali(West), Mumbai - 400067", "name"=>"Dhanesh", "phone"=>"9987501184", "email"=>""}}
+  [4;35;1mCustomer Create (1.6ms)[0m   [0mINSERT INTO "customers" ("name", "address", "created_at", "updated_at", "phone", "email") VALUES('Dhanesh', '2/A, 303, Paras Nagar, Shanker Lane, Kandivali(West), Mumbai - 400067', '2009-09-24 12:20:13', '2009-09-24 12:20:13', '9987501184', '')[0m
+Redirected to http://localhost:3000/customers/1
+Completed in 106ms (DB: 2) | 302 Found [http://localhost/customers]
+
+
+Processing CustomersController#show (for 127.0.0.1 at 2009-09-24 17:50:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCustomer Load (1.1ms)[0m   [0;1mSELECT * FROM "customers" WHERE ("customers"."id" = 1) [0m
+Rendering template within layouts/customers
+Rendering customers/show
+Completed in 46ms (View: 20, DB: 1) | 200 OK [http://localhost/customers/1]
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2009-09-24 17:50:17) [GET]
+  [4;35;1mCustomer Load (3.0ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/customers
+Rendering customers/index
+Completed in 76ms (View: 35, DB: 3) | 200 OK [http://localhost/customers]
+
+
+Processing VendorsController#index (for 127.0.0.1 at 2009-09-24 17:50:28) [GET]
+  [4;36;1mVendor Load (1.4ms)[0m   [0;1mSELECT * FROM "vendors" [0m
+Rendering template within layouts/vendors
+Rendering vendors/index
+Completed in 187ms (View: 160, DB: 1) | 200 OK [http://localhost/vendors]
+
+
+Processing VendorsController#new (for 127.0.0.1 at 2009-09-24 17:50:31) [GET]
+Rendering template within layouts/vendors
+Rendering vendors/new
+Completed in 49ms (View: 27, DB: 0) | 200 OK [http://localhost/vendors/new]
+
+
+Processing VendorsController#create (for 127.0.0.1 at 2009-09-24 17:51:58) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8kDlX5Hnm/9H198Rzxu/LJ9j+vA16kIabTvZU7xa64o=", "vendor"=>{"address"=>"Humlog Building, Shanker Lane, Kandivali (West), Mumbai - 400067", "name"=>"Kenil", "phone"=>"9004046447", "email"=>"crispykenil@gmail.com"}}
+  [4;35;1mVendor Create (0.9ms)[0m   [0mINSERT INTO "vendors" ("name", "address", "created_at", "updated_at", "phone", "email") VALUES('Kenil', 'Humlog Building, Shanker Lane, Kandivali (West), Mumbai - 400067', '2009-09-24 12:21:58', '2009-09-24 12:21:58', '9004046447', 'crispykenil@gmail.com')[0m
+Redirected to http://localhost:3000/vendors/1
+Completed in 53ms (DB: 1) | 302 Found [http://localhost/vendors]
+
+
+Processing VendorsController#show (for 127.0.0.1 at 2009-09-24 17:51:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mVendor Load (1.6ms)[0m   [0;1mSELECT * FROM "vendors" WHERE ("vendors"."id" = 1) [0m
+Rendering template within layouts/vendors
+Rendering vendors/show
+Completed in 44ms (View: 18, DB: 2) | 200 OK [http://localhost/vendors/1]
+
+
+Processing VendorsController#index (for 127.0.0.1 at 2009-09-24 17:52:02) [GET]
+  [4;35;1mVendor Load (1.9ms)[0m   [0mSELECT * FROM "vendors" [0m
+Rendering template within layouts/vendors
+Rendering vendors/index
+Completed in 45ms (View: 17, DB: 2) | 200 OK [http://localhost/vendors]
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2009-09-24 17:52:13) [GET]
+  [4;36;1mCustomer Load (1.8ms)[0m   [0;1mSELECT * FROM "customers" [0m
+Rendering template within layouts/customers
+Rendering customers/index
+Completed in 58ms (View: 31, DB: 2) | 200 OK [http://localhost/customers]
+
+
+Processing CustomersController#edit (for 127.0.0.1 at 2009-09-24 17:52:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCustomer Load (1.1ms)[0m   [0mSELECT * FROM "customers" WHERE ("customers"."id" = 1) [0m
+Rendering template within layouts/customers
+Rendering customers/edit
+Completed in 57ms (View: 36, DB: 1) | 200 OK [http://localhost/customers/1/edit]
+
+
+Processing CustomersController#update (for 127.0.0.1 at 2009-09-24 17:52:27) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8kDlX5Hnm/9H198Rzxu/LJ9j+vA16kIabTvZU7xa64o=", "id"=>"1", "customer"=>{"address"=>"2/A, 303, Paras Nagar, Shanker Lane, Kandivali(West), Mumbai - 400067", "name"=>"Dhanesh", "phone"=>"9987501184", "email"=>"dhanesh.purohit@gmail.com"}}
+  [4;36;1mCustomer Load (1.6ms)[0m   [0;1mSELECT * FROM "customers" WHERE ("customers"."id" = 1) [0m
+  [4;35;1mCustomer Update (0.6ms)[0m   [0mUPDATE "customers" SET "updated_at" = '2009-09-24 12:22:27', "email" = 'dhanesh.purohit@gmail.com' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/customers/1
+Completed in 45ms (DB: 2) | 302 Found [http://localhost/customers/1]
+
+
+Processing CustomersController#show (for 127.0.0.1 at 2009-09-24 17:52:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCustomer Load (1.5ms)[0m   [0;1mSELECT * FROM "customers" WHERE ("customers"."id" = 1) [0m
+Rendering template within layouts/customers
+Rendering customers/show
+Completed in 34ms (View: 9, DB: 2) | 200 OK [http://localhost/customers/1]
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2009-09-24 17:52:30) [GET]
+  [4;35;1mCustomer Load (1.7ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/customers
+Rendering customers/index
+Completed in 39ms (View: 19, DB: 2) | 200 OK [http://localhost/customers]
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCustomers (20090924120621)
+Migrating to CreateVendors (20090924120736)
+Migrating to CreateCategories (20090924124615)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (9.2ms)[0m   [0mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090924124615')[0m
+Migrating to CreateProducts (20090924130035)
+  [4;35;1mSQL (12.6ms)[0m   [0mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "dimensions" text, "category_id" integer, "remarks" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090924130035')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (2.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_list("categories")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("customers")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("products")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("vendors")[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2009-09-24 18:34:38) [GET]
+  [4;36;1mCategory Load (3.7ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/categories
+Rendering categories/index
+Completed in 108ms (View: 36, DB: 4) | 200 OK [http://localhost/categories]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 18:34:48) [GET]
+  [4;35;1mProduct Load (2.3ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 81ms (View: 50, DB: 2) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2009-09-24 18:34:51) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 71ms (View: 44, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2009-09-24 18:35:07) [GET]
+  [4;36;1mCategory Load (1.6ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/categories
+Rendering categories/index
+Completed in 32ms (View: 6, DB: 2) | 200 OK [http://localhost/categories]
+
+
+Processing CategoriesController#new (for 127.0.0.1 at 2009-09-24 18:35:09) [GET]
+Rendering template within layouts/categories
+Rendering categories/new
+Completed in 186ms (View: 23, DB: 0) | 200 OK [http://localhost/categories/new]
+
+
+Processing CategoriesController#create (for 127.0.0.1 at 2009-09-24 18:35:50) [POST]
+  Parameters: {"category"=>{"name"=>"Glassware", "description"=>"Glass articles like test tubes, beakers and other apparatus."}, "commit"=>"Create", "authenticity_token"=>"8kDlX5Hnm/9H198Rzxu/LJ9j+vA16kIabTvZU7xa64o="}
+  [4;35;1mCategory Create (0.8ms)[0m   [0mINSERT INTO "categories" ("name", "created_at", "updated_at", "description") VALUES('Glassware', '2009-09-24 13:05:50', '2009-09-24 13:05:50', 'Glass articles like test tubes, beakers and other apparatus.')[0m
+Redirected to http://localhost:3000/categories/1
+Completed in 56ms (DB: 1) | 302 Found [http://localhost/categories]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2009-09-24 18:35:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCategory Load (1.0ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Rendering template within layouts/categories
+Rendering categories/show
+Completed in 50ms (View: 18, DB: 1) | 200 OK [http://localhost/categories/1]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2009-09-24 18:35:55) [GET]
+  [4;35;1mCategory Load (1.9ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/categories
+Rendering categories/index
+Completed in 51ms (View: 21, DB: 2) | 200 OK [http://localhost/categories]
+
+
+Processing CategoriesController#new (for 127.0.0.1 at 2009-09-24 18:35:57) [GET]
+Rendering template within layouts/categories
+Rendering categories/new
+Completed in 46ms (View: 20, DB: 0) | 200 OK [http://localhost/categories/new]
+
+
+Processing CategoriesController#create (for 127.0.0.1 at 2009-09-24 18:36:58) [POST]
+  Parameters: {"category"=>{"name"=>"Metalware", "description"=>"Metal articles like clamps, tweezers and test tube holders."}, "commit"=>"Create", "authenticity_token"=>"8kDlX5Hnm/9H198Rzxu/LJ9j+vA16kIabTvZU7xa64o="}
+  [4;36;1mCategory Create (0.7ms)[0m   [0;1mINSERT INTO "categories" ("name", "created_at", "updated_at", "description") VALUES('Metalware', '2009-09-24 13:06:58', '2009-09-24 13:06:58', 'Metal articles like clamps, tweezers and test tube holders.')[0m
+Redirected to http://localhost:3000/categories/2
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/categories]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2009-09-24 18:36:59) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mCategory Load (1.5ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2) [0m
+Rendering template within layouts/categories
+Rendering categories/show
+Completed in 47ms (View: 12, DB: 1) | 200 OK [http://localhost/categories/2]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2009-09-24 18:37:01) [GET]
+  [4;36;1mCategory Load (2.1ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/categories
+Rendering categories/index
+Completed in 48ms (View: 23, DB: 2) | 200 OK [http://localhost/categories]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 18:37:20) [GET]
+  [4;35;1mProduct Load (1.7ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 30ms (View: 4, DB: 2) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2009-09-24 18:37:23) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 52ms (View: 22, DB: 0) | 200 OK [http://localhost/products/new]
+  [4;36;1mCategory Load (3.2ms)[0m   [0;1mSELECT * FROM "categories" [0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2009-09-24 18:46:30) [GET]
+Rendering template within layouts/products
+Rendering products/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #20 of app/views/products/new.html.erb:
+17:   </p>
+18:   <p>
+19:     <%= f.label :category_id %><br />
+20:     <%= select(:product, :category_id, @categories.collect { |c| [c.name, c.id]}) %>
+21:     <!--%= f.text_field :category_id %-->
+22:   </p>
+23:   <p>
+
+    app/views/products/new.html.erb:20
+    app/views/products/new.html.erb:3
+    app/controllers/products_controller.rb:29:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (191.7ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2009-09-24 18:50:54) [GET]
+  [4;35;1mCategory Load (1.5ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/products
+Rendering products/new
+Completed in 74ms (View: 32, DB: 2) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2009-09-24 18:52:33) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8kDlX5Hnm/9H198Rzxu/LJ9j+vA16kIabTvZU7xa64o=", "product"=>{"name"=>"Beaker", "remarks"=>"", "dimensions"=>"", "category_id"=>"1", "description"=>""}}
+  [4;36;1mProduct Create (1.1ms)[0m   [0;1mINSERT INTO "products" ("name", "remarks", "created_at", "dimensions", "updated_at", "category_id", "description") VALUES('Beaker', '', '2009-09-24 13:22:33', '', '2009-09-24 13:22:33', 1, '')[0m
+Redirected to http://localhost:3000/products/1
+Completed in 69ms (DB: 1) | 302 Found [http://localhost/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2009-09-24 18:52:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (1.7ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 71ms (View: 29, DB: 2) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 18:52:36) [GET]
+  [4;36;1mProduct Load (2.3ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 51ms (View: 26, DB: 2) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 18:55:29) [GET]
+  [4;35;1mProduct Load (2.4ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.find) on line #17 of app/views/products/index.html.erb:
+14:     <td><%=h product.name %></td>
+15:     <td><%=h product.description %></td>
+16:     <td><%=h product.dimensions %></td>
+17:     <td><%=h @categories.find(product.category_id).name %></td>
+18:     <td><%=h product.remarks %></td>
+19:     <td><%= link_to 'Show', product %></td>
+20:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+
+    app/views/products/index.html.erb:17
+    app/views/products/index.html.erb:12:in `each'
+    app/views/products/index.html.erb:12
+    app/controllers/products_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (214.4ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 19:01:45) [GET]
+  [4;36;1mProduct Load (2.8ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.find_all_by_id) on line #17 of app/views/products/index.html.erb:
+14:     <td><%=h product.name %></td>
+15:     <td><%=h product.description %></td>
+16:     <td><%=h product.dimensions %></td>
+17:     <td><%=h @categories.find_all_by_id(product.category_id).name %></td>
+18:     <td><%=h product.remarks %></td>
+19:     <td><%= link_to 'Show', product %></td>
+20:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+
+    app/views/products/index.html.erb:17
+    app/views/products/index.html.erb:12:in `each'
+    app/views/products/index.html.erb:12
+    app/controllers/products_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (200.7ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 19:02:50) [GET]
+  [4;35;1mProduct Load (2.6ms)[0m   [0mSELECT * FROM "products" [0m
+  [4;36;1mCategory Load (1.2ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/products
+Rendering products/index
+
+ActionView::TemplateError (undefined method `find_all_by_id' for #<Array:0xb5fb43ec>) on line #17 of app/views/products/index.html.erb:
+14:     <td><%=h product.name %></td>
+15:     <td><%=h product.description %></td>
+16:     <td><%=h product.dimensions %></td>
+17:     <td><%=h @categories.find_all_by_id(product.category_id).name %></td>
+18:     <td><%=h product.remarks %></td>
+19:     <td><%= link_to 'Show', product %></td>
+20:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+
+    app/views/products/index.html.erb:17
+    app/views/products/index.html.erb:12:in `each'
+    app/views/products/index.html.erb:12
+    app/controllers/products_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (197.8ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 19:03:20) [GET]
+  [4;35;1mProduct Load (1.9ms)[0m   [0mSELECT * FROM "products" [0m
+  [4;36;1mCategory Load (1.2ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/products
+Rendering products/index
+
+ActionView::TemplateError (undefined method `name' for #<Enumerable::Enumerator:0xb613ca0c>) on line #17 of app/views/products/index.html.erb:
+14:     <td><%=h product.name %></td>
+15:     <td><%=h product.description %></td>
+16:     <td><%=h product.dimensions %></td>
+17:     <td><%=h @categories.find(product.category_id).name %></td>
+18:     <td><%=h product.remarks %></td>
+19:     <td><%= link_to 'Show', product %></td>
+20:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+
+    app/views/products/index.html.erb:17
+    app/views/products/index.html.erb:12:in `each'
+    app/views/products/index.html.erb:12
+    app/controllers/products_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (201.4ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 19:03:42) [GET]
+  [4;35;1mProduct Load (2.7ms)[0m   [0mSELECT * FROM "products" [0m
+  [4;36;1mCategory Load (1.2ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 76ms (View: 35, DB: 4) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 19:04:10) [GET]
+  [4;35;1mProduct Load (3.1ms)[0m   [0mSELECT * FROM "products" [0m
+  [4;36;1mCategory Load (1.8ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/products
+Rendering products/index
+
+ActionView::TemplateError (undefined method `name' for #<Enumerable::Enumerator:0xb5f22a50>) on line #17 of app/views/products/index.html.erb:
+14:     <td><%=h product.name %></td>
+15:     <td><%=h product.description %></td>
+16:     <td><%=h product.dimensions %></td>
+17:     <td><%=h @categories.find(product.category_id).name %></td>
+18:     <td><%=h product.remarks %></td>
+19:     <td><%= link_to 'Show', product %></td>
+20:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+
+    app/views/products/index.html.erb:17
+    app/views/products/index.html.erb:12:in `each'
+    app/views/products/index.html.erb:12
+    app/controllers/products_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (346.5ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 19:05:23) [GET]
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM "products" [0m
+  [4;36;1mCategory Load (1.9ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/products
+Rendering products/index
+
+ActionView::TemplateError (undefined method `name' for #<Enumerable::Enumerator:0xb6051a70>) on line #18 of app/views/products/index.html.erb:
+15:     <td><%=h product.description %></td>
+16:     <td><%=h product.dimensions %></td>
+17:     <%= @category = @categories.find(product.category_id) %>
+18:     <td><%=h @category.name %></td>
+19:     <td><%=h product.remarks %></td>
+20:     <td><%= link_to 'Show', product %></td>
+21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+
+    app/views/products/index.html.erb:18
+    app/views/products/index.html.erb:12:in `each'
+    app/views/products/index.html.erb:12
+    app/controllers/products_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (195.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 19:06:05) [GET]
+  [4;35;1mProduct Load (1.8ms)[0m   [0mSELECT * FROM "products" [0m
+  [4;36;1mCategory Load (1.2ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/products
+Rendering products/index
+
+ActionView::TemplateError (undefined method `[]' for #<Enumerable::Enumerator:0xb5ee31fc>) on line #18 of app/views/products/index.html.erb:
+15:     <td><%=h product.description %></td>
+16:     <td><%=h product.dimensions %></td>
+17:     <%= @category = @categories.find(product.category_id) %>
+18:     <td><%=h @category['name'] %></td>
+19:     <td><%=h product.remarks %></td>
+20:     <td><%= link_to 'Show', product %></td>
+21:     <td><%= link_to 'Edit', edit_product_path(product) %></td>
+
+    app/views/products/index.html.erb:18
+    app/views/products/index.html.erb:12:in `each'
+    app/views/products/index.html.erb:12
+    app/controllers/products_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (207.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-09-24 20:25:20) [GET]
+  [4;35;1mProduct Load (2.6ms)[0m   [0mSELECT * FROM "products" [0m
+  [4;36;1mCategory Load (1.2ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 65ms (View: 30, DB: 4) | 200 OK [http://localhost/products]
