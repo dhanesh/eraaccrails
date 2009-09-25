@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
     @products = Product.all
-    @categories = Category.find(:all)
+    @categories = Category.all
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @products }
@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
-    @categories = Category.find(:all)
+    @categories = Category.all
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @product }
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   # GET /products/new.xml
   def new
     @product = Product.new
-    @categories = Category.find(:all)
+    @categories = Category.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @product }
@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.all
   end
 
   # POST /products

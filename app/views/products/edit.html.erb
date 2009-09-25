@@ -17,7 +17,8 @@
   </p>
   <p>
     <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
+    <%= select(:product, :category_id, @categories.collect { |c| [c.name, c.id]}) %>
+    <!--%= f.text_field :category_id %-->
   </p>
   <p>
     <%= f.label :remarks %><br />

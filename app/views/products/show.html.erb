@@ -15,7 +15,11 @@
 
 <p>
   <b>Category:</b>
-  <%=h @product.category_id %>
+  <% @categories.each do |category|%>
+    <%  if category.id == @product.category_id %>
+    <%=h category.name %>
+    <% end %>
+    <% end %>
 </p>
 
 <p>
