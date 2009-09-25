@@ -1,0 +1,30 @@
+<h1>Editing inventory</h1>
+
+<% form_for(@inventory) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :vendor_id %><br />
+    <%= select(:inventory, :vendor_id, @vendors.collect { |v| [v.name, v.id]}) %>
+    <!--%= f.text_field :vendor_id %-->
+  </p>
+  <p>
+    <%= f.label :product_list_id %><br />
+    <%= select(:inventory, :product_list_id, @product_list.collect { |pl| [pl.name, pl.id]}) %>
+    <!--%= f.text_field :product_list_id %-->
+  </p>
+  <p>
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @inventory %> |
+<%= link_to 'Back', inventories_path %>

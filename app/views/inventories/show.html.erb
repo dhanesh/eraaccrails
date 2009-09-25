@@ -1,0 +1,33 @@
+<p>
+  <b>Vendor:</b>
+  <% @vendors.each do |vendor|%>
+    <%  if vendor.id == @inventory.vendor_id %>
+    <%=h vendor.name %>
+    <% end %>
+    <% end %>
+  <!--%=h @inventory.vendor_id %-->
+</p>
+
+<p>
+  <b>Product:</b>
+  <% @product_list.each do |product|%>
+    <%  if product.id == @inventory.product_list_id %>
+    <%=h product.name %>
+    <% end %>
+    <% end %>
+  <!--%=h @inventory.product_list_id %-->
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @inventory.quantity %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @inventory.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>

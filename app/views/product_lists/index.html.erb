@@ -1,0 +1,36 @@
+<h1>Listing product_lists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Product</th>
+    <th>Brand</th>
+    <th>Price</th>
+  </tr>
+
+<% @product_lists.each do |product_list| %>
+  <tr>
+    <td><%=h product_list.name %></td>
+    <!--td><!--%=h product_list.product_id %></td-->
+    <!--td><!--%=h product_list.brand_id %></td-->
+    <% @product_ids.each do |product_id|%>
+    <%  if product_id.id == product_list.product_id %>
+    <td><%=h product_id.name %></td>
+    <% end %>
+    <% end %>
+    <% @brand_ids.each do |brand_id|%>
+    <%  if brand_id.id == product_list.brand_id %>
+    <td><%=h brand_id.name %></td>
+    <% end %>
+    <% end %>
+    <td><%=h product_list.price %></td>
+    <td><%= link_to 'Show', product_list %></td>
+    <td><%= link_to 'Edit', edit_product_list_path(product_list) %></td>
+    <td><%= link_to 'Destroy', product_list, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New product_list', new_product_list_path %>

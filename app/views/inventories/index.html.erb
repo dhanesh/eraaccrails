@@ -1,0 +1,36 @@
+<h1>Listing inventories</h1>
+
+<table>
+  <tr>
+    <th>Vendor</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+
+<% @inventories.each do |inventory| %>
+  <tr>
+    <% @vendors.each do |vendor|%>
+    <%  if vendor.id == inventory.vendor_id %>
+    <td><%=h vendor.name %></td>
+    <% end %>
+    <% end %>
+    <!--td><!--%=h inventory.vendor_id %></td-->
+    <% @product_list.each do |product|%>
+    <%  if product.id == inventory.product_list_id %>
+    <td><%=h product.name %></td>
+    <% end %>
+    <% end %>
+    <!--td><!--%=h inventory.product_list_id %></td-->
+    <td><%=h inventory.quantity %></td>
+    <td><%=h inventory.price %></td>
+    <td><%= link_to 'Show', inventory %></td>
+    <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
+    <td><%= link_to 'Destroy', inventory, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New inventory', new_inventory_path %>
