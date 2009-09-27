@@ -1697,3 +1697,12 @@ Processing InventoriesController#index (for 127.0.0.1 at 2009-09-26 04:33:43) [G
 Rendering template within layouts/inventories
 Rendering inventories/index
 Completed in 85ms (View: 35, DB: 5) | 200 OK [http://localhost/inventories]
+
+
+Processing InventoriesController#index (for 127.0.0.1 at 2009-09-27 17:43:43) [GET]
+  [4;36;1mInventory Load (27.9ms)[0m   [0;1mSELECT * FROM "inventories" [0m
+  [4;35;1mVendor Load (2.4ms)[0m   [0mSELECT * FROM "vendors" [0m
+  [4;36;1mProductList Load (1.6ms)[0m   [0;1mSELECT * FROM "product_lists" [0m
+Rendering template within layouts/inventories
+Rendering inventories/index
+Completed in 449ms (View: 280, DB: 32) | 200 OK [http://localhost/inventories]
