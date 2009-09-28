@@ -1,0 +1,28 @@
+<p>
+  <b>Bill no:</b>
+  <%=h @order.bill_no %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%=h @order.customer_id %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%=h @order.discount %>
+</p>
+
+<p>
+  <b>Tax:</b>
+  <%=h @order.tax %>
+</p>
+
+<p>
+  <b>Total amount:</b>
+  <%=h @order.total_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

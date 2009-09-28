@@ -1,0 +1,28 @@
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>Bill no</th>
+    <th>Customer</th>
+    <th>Discount</th>
+    <th>Tax</th>
+    <th>Total amount</th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%=h order.bill_no %></td>
+    <td><%=h order.customer_id %></td>
+    <td><%=h order.discount %></td>
+    <td><%=h order.tax %></td>
+    <td><%=h order.total_amount %></td>
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New order', new_order_path %>

@@ -1,0 +1,31 @@
+<h1>New order</h1>
+
+<% form_for(@order) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :bill_no %><br />
+    <%= f.text_field :bill_no, :readonly => true, :value => @last_bill_no == nil ? @last_bill_no = 1 : @last_bill_no += 1 %>
+  </p>
+  <p>
+    <%= f.label :customer_id %><br />
+    <%= select(:order, :customer_id, @customers.collect { |c| [c.name, c.id]}) %>
+  </p>
+  <p>
+    <%= f.label :discount %><br />
+    <%= f.text_field :discount %>
+  </p>
+  <p>
+    <%= f.label :tax %><br />
+    <%= f.text_field :tax %>
+  </p>
+  <p>
+    <%= f.label :total_amount %><br />
+    <%= f.text_field :total_amount %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', orders_path %>

@@ -1706,3 +1706,656 @@ Processing InventoriesController#index (for 127.0.0.1 at 2009-09-27 17:43:43) [G
 Rendering template within layouts/inventories
 Rendering inventories/index
 Completed in 449ms (View: 280, DB: 32) | 200 OK [http://localhost/inventories]
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2009-09-29 02:26:10) [GET]
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: orders: SELECT * FROM "orders" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: orders: SELECT * FROM "orders" ):
+  app/controllers/orders_controller.rb:5:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (152.5ms)
+Rendered rescues/_request_and_response (4.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCustomers (20090924120621)
+Migrating to CreateVendors (20090924120736)
+Migrating to CreateCategories (20090924124615)
+Migrating to CreateProducts (20090924130035)
+Migrating to CreateBrands (20090925080352)
+Migrating to CreateProductLists (20090925212209)
+Migrating to CreateInventories (20090925223217)
+Migrating to CreateOrders (20090928203938)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "bill_no" integer, "customer_id" integer, "discount" float, "tax" float, "total_amount" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090928203938')[0m
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("brands")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("customers")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("inventories")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("orders")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_list("product_lists")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("products")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("vendors")[0m
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2009-09-29 02:26:38) [GET]
+  [4;35;1mOrder Load (1.5ms)[0m   [0mSELECT * FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/index
+Completed in 117ms (View: 98, DB: 1) | 200 OK [http://localhost/orders]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 02:26:40) [GET]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+) on line #8 of app/views/orders/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :bill_no %><br />
+8:     <%= f.text_field :bill_no => @last_bill_no + 1 %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+
+    app/views/orders/new.html.erb:8
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:29:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (180.5ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 02:39:43) [GET]
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (undefined method `bill_no1' for #<Order:0xb696cd44>) on line #8 of app/views/orders/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :bill_no %><br />
+8:     <%= f.text_field :bill_no => @last_bill_no == nil ? @last_bill_no = 1 : @last_bill_no += 1 %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+
+    app/views/orders/new.html.erb:8
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:29:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (184.5ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 02:44:31) [GET]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+ERROR: compiling _run_erb_app47views47orders47new46html46erb RAISED compile error
+/home/dhanesh/apps/ruby/eraaccrails/app/views/orders/new.html.erb:8: syntax error, unexpected '=', expecting ')'
+...ncat(( f.text_field :bill_no = @last_bill_no == nil ? @last_...
+                              ^
+Function body:           def _run_erb_app47views47orders47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>New order</h1>\n\n"
+
+;  form_for(@order) do |f| ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :bill_no ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.text_field :bill_no = @last_bill_no == nil ? @last_bill_no = 1 : @last_bill_no += 1 ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :customer_id ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.text_field :customer_id ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :discount ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.text_field :discount ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :tax ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.text_field :tax ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :total_amount ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.text_field :total_amount ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.submit 'Create' ).to_s); @output_buffer.concat "\n  </p>\n"
+
+;  end ; @output_buffer.concat "\n\n"
+
+; @output_buffer.concat(( link_to 'Back', orders_path ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/dhanesh/apps/ruby/eraaccrails/app/views/orders/new.html.erb:34:in `compile!'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:947:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `custom'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `respond'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `each'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `respond'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/dhanesh/apps/ruby/eraaccrails/app/controllers/orders_controller.rb:29:in `new'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/webrick.rb:46:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/home/dhanesh/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/webrick.rb:13:in `run'
+/var/lib/gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/dhanesh/apps/ruby/eraaccrails/app/views/orders/new.html.erb:8: syntax error, unexpected '=', expecting ')'
+...ncat(( f.text_field :bill_no = @last_bill_no == nil ? @last_...
+                              ^) on line #8 of app/views/orders/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :bill_no %><br />
+8:     <%= f.text_field :bill_no = @last_bill_no == nil ? @last_bill_no = 1 : @last_bill_no += 1 %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+
+    app/views/orders/new.html.erb:34:in `compile!'
+    app/controllers/orders_controller.rb:29:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (164.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 02:45:34) [GET]
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (undefined method `bill_no5' for #<Order:0xb692d504>) on line #8 of app/views/orders/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :bill_no %><br />
+8:     <%= f.text_field :bill_no => 5 %> <!--%@last_bill_no == nil ? @last_bill_no = 1 : @last_bill_no += 1 %-->
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+
+    app/views/orders/new.html.erb:8
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:29:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (326.3ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 02:54:01) [GET]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (undefined method `merge' for 5:Fixnum) on line #8 of app/views/orders/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :bill_no %><br />
+8:     <%= f.text_field :bill_no, 5 %> <!--%@last_bill_no == nil ? @last_bill_no = 1 : @last_bill_no += 1 %-->
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+
+    app/views/orders/new.html.erb:8
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:29:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (176.9ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 02:54:43) [GET]
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (undefined method `merge' for 1:Fixnum) on line #8 of app/views/orders/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :bill_no %><br />
+8:     <%= f.text_field :bill_no, @last_bill_no == nil ? @last_bill_no = 1 : @last_bill_no += 1 %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+
+    app/views/orders/new.html.erb:8
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:29:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (320.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:04:09) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (undefined method `1' for #<Order:0xb69c6d1c>) on line #8 of app/views/orders/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :bill_no %><br />
+8:     <%= f.text_field @last_bill_no == nil ? @last_bill_no = 1 : @last_bill_no += 1 %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+
+    app/views/orders/new.html.erb:8
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:29:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (186.1ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:05:18) [GET]
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 62ms (View: 36, DB: 1) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:07:30) [GET]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 60ms (View: 31, DB: 1) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:08:13) [GET]
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 61ms (View: 31, DB: 1) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:08:19) [GET]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 44ms (View: 18, DB: 1) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:08:33) [GET]
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 52ms (View: 28, DB: 1) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:13:17) [GET]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+  [4;35;1mCustomer Load (1.5ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (undefined method `merge' for [["Dhanesh", 1]]:Array) on line #12 of app/views/orders/new.html.erb:
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+12:     <%= f.select(:order, :customer_id, @customers.collect {|c| [c.name, c.id]}) %>
+13:   </p>
+14:   <p>
+15:     <%= f.label :discount %><br />
+
+    app/views/orders/new.html.erb:12
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:30:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (207.1ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:14:25) [GET]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+  [4;35;1mCustomer Load (1.3ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 97ms (View: 49, DB: 2) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2009-09-29 03:14:39) [GET]
+  [4;36;1mOrder Load (1.5ms)[0m   [0;1mSELECT * FROM "orders" [0m
+  [4;35;1mCustomer Load (1.1ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/orders
+Rendering orders/index
+Completed in 37ms (View: 4, DB: 3) | 200 OK [http://localhost/orders]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:14:41) [GET]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+  [4;35;1mCustomer Load (1.1ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 64ms (View: 26, DB: 2) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2009-09-29 03:19:38) [GET]
+  [4;36;1mOrder Load (1.5ms)[0m   [0;1mSELECT * FROM "orders" [0m
+  [4;35;1mCustomer Load (1.1ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/orders
+Rendering orders/index
+Completed in 39ms (View: 5, DB: 3) | 200 OK [http://localhost/orders]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:19:40) [GET]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+  [4;35;1mCustomer Load (1.5ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 87ms (View: 33, DB: 2) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#create (for 127.0.0.1 at 2009-09-29 03:19:46) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"b++lYHd2d5JNfz+NfTaDWpDYLvYax7dNRWZlN09oDD4=", "order"=>{"tax"=>"", "total_amount"=>"", "discount"=>"a", "bill_no"=>"1", "customer_id"=>"1"}}
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #12 of app/views/orders/new.html.erb:
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+12:     <%= select(:order, :customer_id, @customers.collect {|c| [c.name, c.id]}) %>
+13:   </p>
+14:   <p>
+15:     <%= f.label :discount %><br />
+
+    app/views/orders/new.html.erb:12
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:53:in `create'
+    app/controllers/orders_controller.rb:47:in `create'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (172.2ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2009-09-29 03:21:47) [GET]
+  [4;36;1mOrder Load (2.7ms)[0m   [0;1mSELECT * FROM "orders" [0m
+  [4;35;1mCustomer Load (1.2ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/orders
+Rendering orders/index
+Completed in 110ms (View: 75, DB: 4) | 200 OK [http://localhost/orders]
+
+
+Processing OrdersController#new (for 127.0.0.1 at 2009-09-29 03:21:49) [GET]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT max("orders".bill_no) AS max_bill_no FROM "orders" [0m
+  [4;35;1mCustomer Load (1.5ms)[0m   [0mSELECT * FROM "customers" [0m
+Rendering template within layouts/orders
+Rendering orders/new
+Completed in 90ms (View: 50, DB: 2) | 200 OK [http://localhost/orders/new]
+
+
+Processing OrdersController#create (for 127.0.0.1 at 2009-09-29 03:21:52) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"b++lYHd2d5JNfz+NfTaDWpDYLvYax7dNRWZlN09oDD4=", "order"=>{"tax"=>"", "total_amount"=>"", "discount"=>"", "bill_no"=>"1", "customer_id"=>"1"}}
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #12 of app/views/orders/new.html.erb:
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+12:     <%= select(:order, :customer_id, @customers.collect {|c| [c.name, c.id]}) %>
+13:   </p>
+14:   <p>
+15:     <%= f.label :discount %><br />
+
+    app/views/orders/new.html.erb:12
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:53:in `create'
+    app/controllers/orders_controller.rb:47:in `create'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (315.3ms)
+Rendered rescues/_request_and_response (5.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OrdersController#create (for 127.0.0.1 at 2009-09-29 03:23:50) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"b++lYHd2d5JNfz+NfTaDWpDYLvYax7dNRWZlN09oDD4=", "order"=>{"tax"=>"", "total_amount"=>"", "discount"=>"", "bill_no"=>"1", "customer_id"=>"1"}}
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #12 of app/views/orders/new.html.erb:
+9:   </p>
+10:   <p>
+11:     <%= f.label :customer_id %><br />
+12:     <%= select(:order, :customer_id, @customers.collect { |c| [c.name, c.id]}) %>
+13:   </p>
+14:   <p>
+15:     <%= f.label :discount %><br />
+
+    app/views/orders/new.html.erb:12
+    app/views/orders/new.html.erb:3
+    app/controllers/orders_controller.rb:53:in `create'
+    app/controllers/orders_controller.rb:47:in `create'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (174.7ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
